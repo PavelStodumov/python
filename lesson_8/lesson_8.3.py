@@ -1,6 +1,6 @@
 def type_logger(func):
     def wrap(*args):
-        print(*(f'{str(func).split(" ")[1]}({i}: {type(i)})' for i in args), sep=',')  # осторожно, костыли!!!))
+        print(*(f'{func.__name__}({i}: {type(i)})' for i in args), sep=',')
         return func(*args)
 
     print(f'тип значения функции: {type(wrap())}')
